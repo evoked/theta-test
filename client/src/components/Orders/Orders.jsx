@@ -1,23 +1,24 @@
 import React, { useState } from 'react'
+import useShowComponent from '../util/useShowComponent'
 
 const Orders = () => {
-    let [show, setShow] = useState(false)
+    let toggle = useShowComponent()
 
-    const toggle = () => {
-        setShow(!show)
-    }
+    // const toggle = () => {
+    //     setShow(!show)
+    // }
 
     // TODO: setup useEffect or refactor as class component to handle GET results
     return ( 
-        show ? 
+        toggle.show ? 
         <div>
-            <h2>Customer orders <button onClick={toggle}>X</button></h2>
+            <h2>Customer orders <button onClick={toggle.toggle}>X</button></h2>
             <p>orders</p>
         </div> :
         <div>
-            <button onClick={toggle}>Show orders</button>
+            <button onClick={toggle.toggle}>Show orders</button>
         </div>
      );
 }
 
-export default Orders ;
+export default Orders;

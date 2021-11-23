@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
+import useShowComponent from './../util/useShowComponent'
 
 const NewOrder = () => {
     const [form, setForm] = useState({name: "", product: "", amount: 1})
     // TODO: set response of POST
     // const [response, setResponse] = useState({})
-    let [show, setShow] = useState(false)
+    let toggle = useShowComponent()
     
     const handleInput = (e) => {
         const {name, value} = e.target
@@ -28,16 +29,13 @@ const NewOrder = () => {
         setForm({...form, amount: form.amount - 1})
     }
 
-    const toggle = () => {
-        setShow(!show)
-    }
-
     return(
-        show ?
+        toggle.show ?
         <div>
-            <h2 className="header">Add an order <button onClick={toggle}>X</button></h2>
+            <h2 className="header">Add an order <button onClick={toggle.toggle}>X</button></h2>
             <form className="order-add">
                 <input placeholder="name to add order to" type="text" name="name" onInput={handleInput} />
+                {/* TODO: implement product selection, to scale I would implement suggestion system */}
                 <input placeholder="enter a product" type="text" name="product" onInput={handleInput} />
                 <label>
                 </label>
@@ -46,7 +44,7 @@ const NewOrder = () => {
             <button onClick={serviceAddOrder}>submit order</button>
         </div> :
         <div>
-            <button onClick={toggle}>Add new order</button>
+            <button onClick={toggle.toggle}>Add new order</button>
         </div>
         )
 }
