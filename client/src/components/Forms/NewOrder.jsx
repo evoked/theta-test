@@ -4,7 +4,7 @@ const NewOrder = () => {
     const [form, setForm] = useState({name: "", product: "", amount: 1})
     // TODO: set response of POST
     // const [response, setResponse] = useState({})
-    let [showForm, setShowForm] = useState(false)
+    let [show, setShow] = useState(false)
     
     const handleInput = (e) => {
         const {name, value} = e.target
@@ -15,7 +15,7 @@ const NewOrder = () => {
         if(form.name.length < 1 || form.product.name < 1) return
         e.preventDefault()
         console.log(form)
-        // todo handle create order
+        // TODO: handle create order
     }
 
     const increment = () => {
@@ -28,14 +28,14 @@ const NewOrder = () => {
         setForm({...form, amount: form.amount - 1})
     }
 
-    const toggler = () => {
-        showForm = setShowForm(!showForm)
+    const toggle = () => {
+        setShow(!show)
     }
 
     return(
-        showForm ?
+        show ?
         <div>
-            <h2 className="header">Add an order <button onClick={toggler}>X</button></h2>
+            <h2 className="header">Add an order <button onClick={toggle}>X</button></h2>
             <form className="order-add">
                 <input placeholder="name to add order to" type="text" name="name" onInput={handleInput} />
                 <input placeholder="enter a product" type="text" name="product" onInput={handleInput} />
@@ -46,7 +46,7 @@ const NewOrder = () => {
             <button onClick={serviceAddOrder}>submit order</button>
         </div> :
         <div>
-            <button onClick={toggler}>Add new order</button>
+            <button onClick={toggle}>Add new order</button>
         </div>
         )
 }

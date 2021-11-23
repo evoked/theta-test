@@ -1,13 +1,14 @@
 import React from 'react'
 import NewOrder from './components/Forms/NewOrder'
+import Orders from './components/Orders/Orders'
 
 const App = () => {
     return (
         <div>
             <NewOrder />
-            {/* <Orders /> */}
+            <Orders />
             {/* <Total /> */}
-            <p>test</p>
+            <h3></h3>
         </div>
     )
 }
