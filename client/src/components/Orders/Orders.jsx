@@ -4,10 +4,6 @@ import useShowComponent from '../util/useShowComponent'
 const Orders = () => {
     let toggle = useShowComponent()
 
-    // const toggle = () => {
-    //     setShow(!show)
-    // }
-
     // TODO: setup useEffect or refactor as class component to handle GET results
     return ( 
         toggle.show ? 
