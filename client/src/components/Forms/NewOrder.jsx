@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import useShowComponent from './../util/useShowComponent'
 
 const NewOrder = () => {
@@ -13,10 +13,10 @@ const NewOrder = () => {
     } 
 
     const serviceAddOrder = (e) => {
-        if(form.name.length < 1 || form.product.name < 1) return
+        if(form.name.length < 1 || form.product.length < 1) return
         e.preventDefault()
         console.log(form)
-        // TODO: handle create order
+        // TODO: handle create order, if success then rerender page.
     }
 
     const increment = () => {

@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-const ShowComponent = () => {
+const useShowComponent = () => {
     let [show, setShow] = useState(false)
     const toggle = () => setShow(!show)
     return {show, toggle};
 }
 
-export default ShowComponent;
+export default useShowComponent;
